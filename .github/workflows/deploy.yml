@@ -3,7 +3,8 @@ run-name: deploy the app
 on:
   workflow_run:
     workflows: ["build"]
-    types: [requested]
+    types:
+      - completed
     branches:
       - "main"
 jobs:
