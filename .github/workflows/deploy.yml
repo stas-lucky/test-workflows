@@ -3,6 +3,9 @@ run-name: deploy the app
 on:
   workflow_run:
     workflows: ["build"]
+    types: [requested]
+    branches:
+      - "main"
 jobs:
   build-artifacts:
     runs-on: ubuntu-latest
