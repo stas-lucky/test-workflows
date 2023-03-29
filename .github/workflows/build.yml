@@ -6,6 +6,6 @@ on:
       - main
 jobs:
   build-artifacts:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - run: echo Build run!
