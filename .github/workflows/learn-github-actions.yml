@@ -14,4 +14,4 @@ jobs:
   secret-job:
     runs-on: ubuntu-latest
     steps:
-      - run: echo My secret $MY_SECRET
+      - run: echo My secret ${{ secrets.MY_SECRET }}
