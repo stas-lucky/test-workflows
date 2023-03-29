@@ -7,8 +7,15 @@ on:
       - completed
     branches:
       - "main"
+
 jobs:
-  build-artifacts:
+  deploy-dev:
     runs-on: ubuntu-latest
+    environment: "dev"
     steps:
-      - run: echo Deploy run!
+      - run: echo DEV dpeloy
+  deploy-qa:
+    runs-on: ubuntu-latest
+    environment: "qa"
+    steps:
+      - run: echo QA dpeloy
