@@ -1,0 +1,11 @@
+name: build
+run-name: builds the app
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-artifacts:
+    run-on: ubuntu-latest
+    steps:
+      - run: echo Build run!

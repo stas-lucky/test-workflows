@@ -1,0 +1,10 @@
+name: deploy
+run-name: deploy the app
+on:
+  workflow_run:
+    workflows: ["build"]
+jobs:
+  build-artifacts:
+    run-on: ubuntu-latest
+    steps:
+      - run: echo Deploy run!
