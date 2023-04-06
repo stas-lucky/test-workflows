@@ -2,7 +2,7 @@ name: deploy
 run-name: deploy the app
 on:
   workflow_run:
-    workflows: ["build"]
+    workflows: ["docker-build-and-push"]
     types:
       - completed
     branches:
@@ -14,6 +14,13 @@ jobs:
     environment: "dev"
     steps:
       - run: echo DEV dpeloy
+      - name: Azure WebApp
+        uses: Azure/webapps-deploy@v2.2.9
+        with:
+          app-name: my-test-web-app-12345.azurewebsites.net
+          publish-profile: ${{ secrets.WEB_APP_PUBLISH_PROFILE }}
+          slot-name: dev
+   
   deploy-qa:
     runs-on: ubuntu-latest
     environment: "qa"
