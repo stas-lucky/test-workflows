@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - main
+      
+env:
+  IMAGE_NAME: my-web-api
+  IMAGE_REGISTRY: myrepo12345.azurecr.io
 
 jobs:
   docker_build_push_acr:
@@ -31,5 +35,5 @@ jobs:
       uses: docker/build-push-action@v4.0.0
       with:
         push: true
-        tags: myrepo12345.azurecr.io/my-web-api:v1.${{ github.run_number }}
+        tags: ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:v1.${{ github.run_number }}, 
         file: src/WebApi/Dockerfile
